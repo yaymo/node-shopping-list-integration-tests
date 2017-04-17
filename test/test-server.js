@@ -180,6 +180,8 @@ describe('recipes list', function() {
       res.should.be.json;
       res.body.should.be.a('object');
       res.body.should.include.keys('name', 'ingredients', 'id');
+      res.body.name.should.equal(newItem.name);
+      res.body.ingredients.should.be.a('array');
       res.body.id.should.not.be.null;
       res.body.should.deep.equal(Object.assign(newItem, {id: res.body.id}));
     });
